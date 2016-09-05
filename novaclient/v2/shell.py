@@ -3158,6 +3158,9 @@ def do_usage_list(cs, args):
         setattr(u, simplerows[2], "%.2f" % u.total_memory_mb_usage)
         setattr(u, simplerows[3], "%.2f" % u.total_vcpus_usage)
         setattr(u, simplerows[4], "%.2f" % u.total_local_gb_usage)
+        setattr(u, simplerows[5], "$"+"%.2f" % u.mem_bill)
+        setattr(u, simplerows[6], "$"+"%.2f" % u.cpu_bill)
+        setattr(u, simplerows[7], "$"+"%.2f" % u.disk_bill)
 
     usage_list = cs.usage.list(start, end, detailed=True)
 
@@ -3209,6 +3212,9 @@ def do_usage(cs, args):
         setattr(u, simplerows[1], "%.2f" % u.total_memory_mb_usage)
         setattr(u, simplerows[2], "%.2f" % u.total_vcpus_usage)
         setattr(u, simplerows[3], "%.2f" % u.total_local_gb_usage)
+        setattr(u, simplerows[4], "$"+"%.2f" % u.mem_bill)
+        setattr(u, simplerows[5], "$"+"%.2f" % u.cpu_bill)
+        setattr(u, simplerows[6], "$"+"%.2f" % u.disk_bill)
 
     if args.tenant:
         usage = cs.usage.get(args.tenant, start, end)
